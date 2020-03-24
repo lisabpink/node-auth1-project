@@ -35,9 +35,9 @@ router.post("/login", (req, res) => {
           id: user.id,
           username: user.username
         };
-        res.status(200).json({ hello: user.username });
+        res.status(200).json({ hello: user.username, yourCookie: req.session });
       } else {
-        res.status(401).json({ message: "Invalid credentials" });
+        res.status(401).json({ message: "You shall not pass!" });
       }
     })
     .catch(error => {
